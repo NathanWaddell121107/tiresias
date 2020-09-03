@@ -1,4 +1,3 @@
-import '../styles/globals.css'
 import { AppProps } from 'next/app'
 
 export const MyApp = (props: AppProps) => {
