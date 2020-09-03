@@ -1,3 +1,5 @@
+# TIRESIAS
+
 ### TIRESIAS is a cryptocurrency app that will give you tips and hints to make successful trades
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
