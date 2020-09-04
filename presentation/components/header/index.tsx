@@ -19,7 +19,7 @@ const Header = () => {
 						<a href="#">Account</a>
 					</Styled.HeaderMenuItems>
 					<Styled.IconWrapper>
-						<FontAwesomeIcon icon={faBars} onClick={() => toggleNav()} />
+						<FontAwesomeIcon width="20px" icon={faBars} onClick={() => toggleNav()} />
 					</Styled.IconWrapper>
 				</Styled.HeaderWrapper>
 				{navMenuIsOpen && (
