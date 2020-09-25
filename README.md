@@ -4,14 +4,8 @@
 
 ## Getting Started
 
-First, run the development server:
+run `yarn`
 
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+hit F5 to run development server
 
 deployment: https://tiresias.nathanwaddell.vercel.app/
