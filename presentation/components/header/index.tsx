@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import * as Styled from './header.styles'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
+import Link from 'next/link'
 
 const Header = () => {
 	const [navMenuIsOpen, setNavMenuIsOpen] = useState(false)
@@ -14,7 +15,7 @@ const Header = () => {
 				<Styled.HeaderWrapper>
 					<Styled.HeaderLogo>TIRESIAS</Styled.HeaderLogo>
 					<Styled.HeaderMenuItems>
-						<a href="#">Charts</a>
+						<Link href="/charts">Charts</Link>
 						<a href="#">Portfolio</a>
 						<a href="#">Account</a>
 					</Styled.HeaderMenuItems>
