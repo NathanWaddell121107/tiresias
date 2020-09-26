@@ -13,7 +13,7 @@ const Header = () => {
 		<>
 			<Styled.HeaderOuterWrapper>
 				<Styled.HeaderWrapper>
-					<Styled.HeaderLogo>TIRESIAS</Styled.HeaderLogo>
+					<Link href="/"><Styled.HeaderLogo>TIRESIAS</Styled.HeaderLogo></Link>
 					<Styled.HeaderMenuItems>
 						<Link href="/charts">Charts</Link>
 						<a href="#">Portfolio</a>
