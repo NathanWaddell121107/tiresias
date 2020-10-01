@@ -20,6 +20,7 @@ export const HeaderOuterWrapper = styled.div`
 `
 
 export const HeaderLogo = styled.div`
+	cursor: pointer;
 	width: 30%;
 `
 

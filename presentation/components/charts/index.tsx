@@ -1,3 +1,4 @@
+import * as Styled from './charts.styles'
 import React, { useEffect, useState } from 'react'
 import { CoinApiFields } from '../../types/coin-api-fields'
 import { MarketData } from '../../types/market-data'
@@ -27,7 +28,10 @@ const Charts: React.FC = () => {
 	}, [searchForMarketData])
 
 	return (
-		<div>
+		<Styled.ChartsWrapper>
+			<Styled.TopTen>
+				Top Ten chart
+			</Styled.TopTen>
 			<div>Charts</div>
 			<label>Coin Name</label>
 			<input
@@ -66,7 +70,7 @@ const Charts: React.FC = () => {
 						return <div key={index}>{coin[1]}</div>
 					})}
 			</>
-		</div>
+		</Styled.ChartsWrapper>
 	)
 }
 
