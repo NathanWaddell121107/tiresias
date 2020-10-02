@@ -21,7 +21,7 @@ const Header: React.FC<Props> = ({ toggleModal }) => {
 					<Styled.HeaderMenuItems>
 						<Link href="/charts">Charts</Link>
 						<Link href="#">Portfolio</Link>
-						<a onClick={toggleModal}>Login</a>
+						<Styled.HeaderLink onClick={toggleModal}>Login</Styled.HeaderLink>
 					</Styled.HeaderMenuItems>
 					<Styled.IconWrapper>
 						<FontAwesomeIcon width="20px" icon={faBars} onClick={() => toggleNav()} />

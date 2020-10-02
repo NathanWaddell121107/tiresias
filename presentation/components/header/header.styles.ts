@@ -61,3 +61,7 @@ export const MobileHeaderMenuItems = styled.div`
 		}
 	}
 `
+
+export const HeaderLink = styled.a`
+	cursor: pointer;
+`
