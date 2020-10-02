@@ -9,8 +9,8 @@ interface Props {
 
 const Login: React.FC<Props> = ({ modalOpen, toggleModal }) => {
 	return (
-		<Modal isOpen={modalOpen} toggle={toggleModal}>
-			<ModalHeader>Login</ModalHeader>
+		<Modal isOpen={modalOpen} toggle={toggleModal} style={{ margin: '20% auto' }}>
+			<ModalHeader style={{ display: 'flex', justifyContent: 'center' }}>Login</ModalHeader>
 			<ModalBody>Login content</ModalBody>
 			<ModalFooter>
 				<Button color="primary" onClick={toggleModal}>
