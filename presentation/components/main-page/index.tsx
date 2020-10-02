@@ -6,7 +6,6 @@ import { getPolygonConfig } from '../../helpers/polygon-config'
 const MainPage = () => {
 	return (
 		<>
-			<Header />
 			<Particles style={{ position: 'fixed', top: 0 }} params={getPolygonConfig() as IParticlesParams} />
 		</>
 	)
