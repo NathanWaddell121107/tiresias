@@ -5,7 +5,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link'
 
 interface Props {
-	toggleModal: () => void
+	toggleModal?: () => void
 }
 
 const Header: React.FC<Props> = ({ toggleModal }) => {
