@@ -1,12 +1,12 @@
-import express from 'express'
-import cors from 'cors'
-import graph from 'express-graphql'
-const { graphqlHTTP } = graph
+
+const express = require('express');
+const cors = require('cors');
+const graphqlHTTP = require('express-graphql');
+const schema = require('./graphql/schema');
+const { setupDB } = require('./config/database-connection.js')
 const app = express();
 
-const schema = {
-  // we will add this later
-};
+setupDB(v => console.log(v));
 
 app.use(cors());
 app.use(

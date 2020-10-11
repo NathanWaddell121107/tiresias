@@ -10,7 +10,6 @@
 		"server": "ts-node server/index.js",
 		"watch": "nodemon --watch dist/server dist/server/index.ts"
 	},
-	"type": "module",
 	"dependencies": {
 		"@fortawesome/fontawesome-svg-core": "^1.2.30",
 		"@fortawesome/free-solid-svg-icons": "^5.14.0",
@@ -18,6 +17,7 @@
 		"@types/styled-components": "^5.1.3",
 		"bootstrap": "^4.5.2",
 		"cors": "^2.8.5",
+		"dotenv": "^8.2.0",
 		"express": "^4.17.1",
 		"express-graphql": "^0.11.0",
 		"graphql": "^15.3.0",

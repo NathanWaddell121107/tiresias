@@ -1,0 +1,50 @@
+type User {
+	_id: ObjectID!
+	emailAddress: String
+	firstName: String
+	lastName: String
+	passWord: String
+}
+
+input DeleteUserArgs {
+	_id: ObjectID!
+}
+
+input CreateUserArgs {
+	emailAddress: String
+	firstName: String
+	lastName: String
+	passWord: String
+}
+
+input UpdateUserArgs {
+	_id: ObjectID!
+	emailAddress: String
+	firstName: String
+	lastName: String
+	passWord: String
+}
+
+input UserFilter {
+	or: [UserFilter!]
+	and: [UserFilter!]
+	_id_in: [ObjectID]
+	_id_equals: ObjectID
+	_id_notEquals: ObjectID
+}
+
+input UserUniqueFilter {
+	_id: ObjectID
+	emailAddress: String
+}
+
+type Query {
+	users(offset: Int, limit: Int, filter: UserFilter): [User!]!
+	user(where: UserUniqueFilter): User
+}
+
+type Mutation {
+	deleteUser(data: DeleteUserArgs!): User
+	createUser(data: CreateUserArgs!): User
+	updateUser(data: UpdateUserArgs!): User
+}
