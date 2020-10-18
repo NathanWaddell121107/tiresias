@@ -1,75 +1,54 @@
 import * as Styled from './charts.styles'
 import React, { useEffect, useState } from 'react'
-import { CoinApiFields } from '../../types/coin-api-fields'
-import { MarketData } from '../../types/market-data'
+import { TopTenCoins } from '../../types/top-ten-coins'
+import TopTen from './top-ten'
 
 const Charts: React.FC = () => {
-	const [chartsData, setChartsData] = useState<MarketData['prices']>([])
-	const [searchForMarketData, setSearchForMarketData] = useState(false)
-	const [apiFields, setApiFields] = useState<CoinApiFields>({ coinName: '', currency: '', days: '' })
+	const [rawCoinData, setRawCoinData] = useState<TopTenCoins[]>([])
+	const [topTen, setTopTen] = useState<TopTenCoins[]>([])
 
 	useEffect(() => {
 		const fetchChartData = async () => {
-			const result = await fetch(
-				`https://api.coingecko.com/api/v3/coins/${apiFields.coinName}/market_chart?vs_currency=${apiFields.currency}&days=${apiFields.days}`
-			)
-			const chartData: MarketData = await result.json()
-			console.log('result: ', chartData)
-
-			if (!result) {
-				console.log('error: ')
+			try {
+				const result = await fetch('/api/coin-api')
+				const chartData = await result.json()
+				setRawCoinData(chartData.chartData.data)
+			} catch (err) {
+				console.log('err: ', err)
 			}
+		}
+		fetchChartData()
+	}, [])
 
-			setChartsData(chartData.prices)
+	useEffect(() => {
+		const topTenData: TopTenCoins[] = []
+		if (rawCoinData && rawCoinData.length > 0) {
+			for (let i = 0; i < 10; i++) {
+				topTenData.push(rawCoinData[i])
+			}
+			setTopTen(topTenData)
 		}
-		if (searchForMarketData) {
-			fetchChartData()
-		}
-	}, [searchForMarketData])
+	}, [rawCoinData])
 
 	return (
 		<Styled.ChartsWrapper>
-			<Styled.TopTen>
-				Top Ten chart
-			</Styled.TopTen>
-			<div>Charts</div>
-			<label>Coin Name</label>
-			<input
-				onChange={(e) => {
-					const value = e.target.value
-					setApiFields({ ...apiFields, coinName: value })
-				}}
-				value={apiFields.coinName}
-				placeholder="bitcoin"
-				type="text"
-			/>
-			<label>Currency</label>
-			<input
-				onChange={(e) => {
-					const value = e.target.value
-					setApiFields({ ...apiFields, currency: value })
-				}}
-				value={apiFields.currency}
-				placeholder="usd"
-				type="text"
-			/>
-			<label>Days</label>
-			<input
-				onChange={(e) => {
-					const value = e.target.value
-					setApiFields({ ...apiFields, days: value })
-				}}
-				value={apiFields.days}
-				placeholder="14"
-				type="text"
-			/>
-			<button onClick={() => setSearchForMarketData(true)}>Search</button>
-			<>
-				{chartsData &&
-					chartsData.map((coin, index) => {
-						return <div key={index}>{coin[1]}</div>
+			<h1>Top 10 Coins</h1>
+			<Styled.TopTenWrapper>
+				<Styled.ListHeader>
+					<Styled.Ranking>#</Styled.Ranking>
+					<Styled.Name>Name</Styled.Name>
+					<Styled.Details>Price</Styled.Details>
+					<Styled.Details>24h</Styled.Details>
+					<Styled.Details>7d</Styled.Details>
+					<Styled.Details>Market Cap</Styled.Details>
+					<Styled.Details>Volume</Styled.Details>
+					<Styled.Details>Circulating Supply</Styled.Details>
+				</Styled.ListHeader>
+				{topTen &&
+					topTen.map((coin, index) => {
+						return <TopTen coin={coin} index={index} />
 					})}
-			</>
+			</Styled.TopTenWrapper>
 		</Styled.ChartsWrapper>
 	)
 }
