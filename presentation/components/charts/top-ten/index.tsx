@@ -13,7 +13,7 @@ const TopTen: React.FC<Props> = ({ coin, index }) => {
 	const percent24Hour = coin.quote.USD.percent_change_24h
 	const percent7Day = coin.quote.USD.percent_change_7d
 	return (
-		<Styled.CoinWrapper index={index} key={coin.id}>
+		<Styled.CoinWrapper index={index}>
 			<Styled.Ranking>{index + 1}</Styled.Ranking>
 			<Styled.CoinName>
 				{coin.name}

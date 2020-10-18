@@ -46,7 +46,7 @@ const Charts: React.FC = () => {
 				</Styled.ListHeader>
 				{topTen &&
 					topTen.map((coin, index) => {
-						return <TopTen coin={coin} index={index} />
+						return <TopTen key={coin.id} coin={coin} index={index} />
 					})}
 			</Styled.TopTenWrapper>
 		</Styled.ChartsWrapper>
