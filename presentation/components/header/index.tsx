@@ -29,10 +29,10 @@ const Header: React.FC<Props> = ({ toggleModal }) => {
 				</Styled.HeaderWrapper>
 				{navMenuIsOpen && (
 					<Styled.MobileHeaderMenuItems>
-						<a href="#">Charts</a>
+						<a href="/charts">Charts</a>
 						<a href="#">Portfolio</a>
-						<a href="#" style={{ borderBottom: '1px solid black' }}>
-							Account
+						<a onClick={toggleModal} style={{ borderBottom: '1px solid black' }}>
+							Login
 						</a>
 					</Styled.MobileHeaderMenuItems>
 				)}
