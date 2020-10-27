@@ -35,14 +35,18 @@ const Charts: React.FC = () => {
 			<h1>Top 10 Coins</h1>
 			<Styled.TopTenWrapper>
 				<Styled.ListHeader>
-					<Styled.Ranking>#</Styled.Ranking>
-					<Styled.Name>Name</Styled.Name>
-					<Styled.Details>Price</Styled.Details>
-					<Styled.Details>24h</Styled.Details>
-					<Styled.Details>7d</Styled.Details>
-					<Styled.Details>Market Cap</Styled.Details>
-					<Styled.Details>Volume</Styled.Details>
-					<Styled.Details>Circulating Supply</Styled.Details>
+					<Styled.NameAndRank>
+						<Styled.Ranking>#</Styled.Ranking>
+						<Styled.Name>Name</Styled.Name>
+					</Styled.NameAndRank>
+					<Styled.DetailsContainer>
+						<Styled.Details>Price</Styled.Details>
+						<Styled.Details>24h</Styled.Details>
+						<Styled.Details>7d</Styled.Details>
+						<Styled.Details>Market Cap</Styled.Details>
+						<Styled.Details>Volume</Styled.Details>
+						<Styled.Details>Circulating</Styled.Details>
+					</Styled.DetailsContainer>
 				</Styled.ListHeader>
 				{topTen &&
 					topTen.map((coin, index) => {
