@@ -52,7 +52,7 @@ export const DetailsContainer = styled.tr`
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 	width: 1200px;
-	overflow-x: scroll;
+	overflow-x: auto;
 	@media (max-width: 1200px) {
 		width: 800px;
 	}
